@@ -1,0 +1,90 @@
+[
+  {
+    "name": "Application1",
+    "description": "Lorem ipsum",
+    "available_sizing": [
+      {
+        "name": "small",
+        "label": "S",
+        "mCPU": 2000,
+        "u_mCPU": "millicores",
+        "RAM": 8,
+        "u_RAM": "GB"
+      },
+      {
+        "name": "medium",
+        "label": "M",
+        "mCPU": 4000,
+        "u_mCPU": "millicores",
+        "RAM": 16,
+        "u_RAM": "GB"
+      },
+      {
+        "name": "large",
+        "label": "L",
+        "mCPU": 8000,
+        "u_mCPU": "millicores",
+        "RAM": 32,
+        "u_RAM": "GB"
+      }
+    ]
+  },
+  {
+    "name": "Application2",
+    "description": "Lorem ipsum",
+    "available_sizing": [
+      {
+        "name": "small",
+        "label": "S",
+        "mCPU": 2000,
+        "u_mCPU": "millicores",
+        "RAM": 8,
+        "u_RAM": "GB"
+      }
+    ]
+  },
+  {
+    "name": "Application3",
+    "description": "Lorem ipsum",
+    "available_sizing": [
+      {
+        "name": "small",
+        "label": "S",
+        "mCPU": 2000,
+        "u_mCPU": "millicores",
+        "RAM": 8,
+        "u_RAM": "GB"
+      },
+      {
+        "name": "large",
+        "label": "L",
+        "mCPU": 8000,
+        "u_mCPU": "millicores",
+        "RAM": 32,
+        "u_RAM": "GB"
+      }
+    ]
+  },
+  {
+    "name": "Application4",
+    "description": "Lorem ipsum",
+    "available_sizing": [
+      {
+        "name": "medium",
+        "label": "M",
+        "mCPU": 4000,
+        "u_mCPU": "millicores",
+        "RAM": 16,
+        "u_RAM": "GB"
+      },
+      {
+        "name": "large",
+        "label": "L",
+        "mCPU": 8000,
+        "u_mCPU": "millicores",
+        "RAM": 32,
+        "u_RAM": "GB"
+      }
+    ]
+  }
+]

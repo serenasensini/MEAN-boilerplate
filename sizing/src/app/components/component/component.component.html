@@ -1,0 +1,76 @@
+<div class="content header">
+    <mat-card>
+      <mat-card-title>Lorem ipsum dolor sit amet</mat-card-title>
+      <mat-card-content>Lorem ipsum dolor sit amet</mat-card-content>
+    </mat-card>
+
+</div>
+<div class="content">
+    <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Search..." #input>
+    </mat-form-field>
+
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+      <!-- name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <!--  description Column-->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+        <td mat-cell *matCellDef="let element">
+          {{element.description}}
+        </td>
+      </ng-container>
+
+      <!--    sizing Detail-->
+      <ng-container matColumnDef="detail">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>  </th>
+        <td mat-cell *matCellDef="let element">
+          <mat-accordion>
+            <mat-expansion-panel hideToggle>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Show available sizings
+                </mat-panel-title>
+                <mat-panel-description>
+
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <mat-card class="example-card"  *ngFor="let item of element.available_sizing">
+                <mat-card-header>
+                  <mat-card-title matBadge="{{item.label}}" matBadgeOverlap="false">{{item.name}}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                  <p>
+                    <strong>RAM:</strong> {{item.RAM}} {{item.u_RAM}}
+                  </p>
+                  <p>
+                    <strong>CPU:</strong> {{item.mCPU}} {{item.u_mCPU}}
+                  </p>
+                </mat-card-content>
+              </mat-card>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </td>
+      </ng-container>
+
+      <!--    <ng-container matColumnDef="detail">-->
+      <!--      <th mat-header-cell *matHeaderCellDef> Action </th>-->
+      <!--      <td mat-cell *matCellDef="let element">-->
+      <!--        <mat-icon>info</mat-icon>-->
+      <!--      </td>-->
+      <!--    </ng-container>-->
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+    </table>
+</div>
