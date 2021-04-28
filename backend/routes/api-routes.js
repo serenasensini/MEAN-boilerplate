@@ -5,25 +5,8 @@ router.get('/', function (req, res) {
         message: 'Welcome to webapp crafted with love!',
     });
 });
-var componentController = require('../controllers/componentController');
-router.route('/components')
-    .get(componentController.index)
-    .post(componentController.new);
 
-router.route('/components/:component_id')
-    .get(componentController.view)
-    .put(componentController.update)
-    .delete(componentController.delete);
-
-var sizingController = require('../controllers/sizingController');
-router.route('/sizings')
-    .get(sizingController.index)
-    .post(sizingController.new);
-
-router.route('/sizings/:sizing_id')
-    .get(sizingController.view)
-    .put(sizingController.update)
-    .delete(sizingController.delete);
+// STEP 3: definire route
 
 var requestController = require('../controllers/requestController');
 router.route('/requests')

@@ -11,16 +11,20 @@ import {MatSort} from '@angular/material/sort';
 })
 export class RequestsComponent implements OnInit {
 
-  displayedColumns: string[] = ['name', 'description', 'date', 'owner', 'customer', 'detail', 'result'];
+  displayedColumns: string[] = ['name', 'description'];
   dataSource: MatTableDataSource<RequestData>;
   requests: RequestData[];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
+
+  // STEP 4: import servizio per la gestione delle richieste
   constructor(public requestsService: RequestsService) {
   }
 
+
+  // STEP 5: recupero richieste e popolamento datasource della tabella
   ngOnInit(): void {
     this.requestsService.getRequests()
       .subscribe((requests: RequestData[]) => {

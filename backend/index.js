@@ -11,7 +11,13 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 app.use(cors())
 
-mongoose.connect('mongodb://mongo:27019/sizingBe', { useNewUrlParser: true});
+// STEP 4: definire collegamento al db
+
+// test locale
+// mongoose.connect('mongodb://localhost:27017/mydb', { useNewUrlParser: true});
+
+// test Docker Compose
+mongoose.connect('mongodb://mongo:27019/mydb', { useNewUrlParser: true});
 
 var db = mongoose.connection;
 
@@ -24,7 +30,9 @@ var port = process.env.PORT || 8081;
 
 app.get('/', (req, res) => res.send('Hello World!'));
 
+// STEP 5: definire contesto (opzionale)
 app.use('/api', apiRoutes);
+
 app.listen(port, function () {
     console.log("Running webapp on port " + port);
 });

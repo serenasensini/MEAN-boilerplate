@@ -3,14 +3,14 @@ services:
   frontend:
     container_name: frontend
     restart: always
-    build: sizing
+    build: frontend
     ports:
       - "4200:4200"
     depends_on:
-      app:
+      backend:
         condition: service_healthy
-  app:
-    container_name: app
+  backend:
+    container_name: backend
     restart: always
     build: backend
     ports:
@@ -32,11 +32,11 @@ services:
     ports:
       - "27019:27019"
     environment:
-      MONGO_INITDB_DATABASE: sizingBe
+      MONGO_INITDB_DATABASE: mydb
 #      MONGO_INITDB_ROOT_USERNAME: root
 #      MONGO_INITDB_ROOT_PASSWORD: root
     healthcheck:
-      test: echo 'db.runCommand("ping").ok' | mongo mongo:27019/sizingBe --quiet
+      test: echo 'db.runCommand("ping").ok' | mongo mongo:27019/mydb --quiet
       interval: 10s
       timeout: 10s
       retries: 5

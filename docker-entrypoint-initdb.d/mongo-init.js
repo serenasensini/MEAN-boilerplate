@@ -4,12 +4,12 @@ db.createUser({
     roles: [
         {
             role: 'readWrite',
-            db: 'sizingBe',
+            db: 'mydb',
         },
     ],
 });
 
-db = new Mongo().getDB("sizingBe");
+db = new Mongo().getDB("mydb");
 
 db.createCollection('components', { capped: false });
 
